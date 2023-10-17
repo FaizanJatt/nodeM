@@ -43,7 +43,7 @@ router.post('/', (req,res)=>{
         to: 'xmuhammadfaizanx@gmail.com',
         subject:"Contacted By",
         text: text,
-        html: '<b> Hey there! </b><br> This is our first message sent with nodemailer</br>'
+        html: `<b> Hey there! </b><br> ${text}</br>`
     }
     
     transporter.sendMail(mailData, (err,info)=>{
