@@ -30,18 +30,16 @@ const transporter = nodemailer.createTransport({
 
 
 router.get("/", (req,res)=>{
-    res.send('<h1>hii</h1>')
+    res.send('<h1>Send a post request to this link with the fields [name, email , num and message]</h1>')
 })
-router.get("/text-mail", (req,res)=>{
-    res.send("<h1>FK</h1>")
-})
+
 
 router.post('/', (req,res)=>{
     const {name,email,num,message} = req.body;
-    console.log(name,email,num,message);
+    // console.log(name,email,num,message);
     if(!name || !email || !num || !message) return
     const mailData = {
-        from: 'kaoruhashiga@gmail.com',
+        from: process.env.USER,
         to: 'xmuhammadfaizanx@gmail.com',
         subject:`You were contacted by ${name} `,
         text: "contacted By someone",
@@ -54,7 +52,7 @@ router.post('/', (req,res)=>{
     }
     
     transporter.sendMail(mailData, (err,info)=>{
-        console.log(mailData,info)
+        // console.log(mailData,info)
         if(err) return console.log(err);
         res.status(200).send({message:"Mail sent", message_id:info.messageId})
     })
