@@ -54,5 +54,5 @@ router.post('/text-mail', (req,res)=>{
 })
 
 
-app.use("/", router)
+app.use("/api", router)
 
