@@ -46,7 +46,6 @@ router.post('/', (req,res)=>{
         text: text,
         html: '<b> Hey there! </b><br> This is our first message sent with nodemailer</br>'
     }
-    console.log(process.env.USER)
     
     transporter.sendMail(mailData, (err,info)=>{
         console.log(mailData,info)
