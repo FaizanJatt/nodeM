@@ -50,7 +50,6 @@ router.post('/', (req,res)=>{
         `
     }
     console.log(mailData)
-    return;
     
     transporter.sendMail(mailData, (err,info)=>{
         if(err) return console.log(err);
