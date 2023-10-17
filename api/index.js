@@ -36,7 +36,7 @@ router.get("/text-mail", (req,res)=>{
     res.send("<h1>FK</h1>")
 })
 
-router.post('/text-mail', (req,res)=>{
+router.post('/', (req,res)=>{
     const {text} = req.body;
     const mailData = {
         from: 'kaoruhashiga@gmail.com',
