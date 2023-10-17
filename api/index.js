@@ -38,6 +38,8 @@ router.get("/text-mail", (req,res)=>{
 
 router.post('/', (req,res)=>{
     const {name,email,num,message} = req.body;
+    console.log(name,email,num,message);
+    if(!name || !email || !num || !message) return
     const mailData = {
         from: 'kaoruhashiga@gmail.com',
         to: 'xmuhammadfaizanx@gmail.com',
