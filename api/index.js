@@ -36,11 +36,10 @@ router.get("/", (req,res)=>{
 
 router.post('/', (req,res)=>{
     const {name,email,num,message} = req.body;
-    // console.log(name,email,num,message);
     if(!name || !email || !num || !message) return
     const mailData = {
         from: process.env.USER,
-        to: 'xmuhammadfaizanx@gmail.com',
+        to: 'info@redpositive.in',
         subject:`You were contacted by ${name} `,
         text: "contacted By someone",
         html: `<b> Hey there! </b><br> You were contacted by someone </br>
@@ -52,7 +51,6 @@ router.post('/', (req,res)=>{
     }
     
     transporter.sendMail(mailData, (err,info)=>{
-        // console.log(mailData,info)
         if(err) return console.log(err);
         res.status(200).send({message:"Mail sent", message_id:info.messageId})
     })
