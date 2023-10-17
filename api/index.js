@@ -49,6 +49,8 @@ router.post('/', (req,res)=>{
         <br> Message: ${message}</br>
         `
     }
+    console.log(mailData)
+    return;
     
     transporter.sendMail(mailData, (err,info)=>{
         if(err) return console.log(err);
