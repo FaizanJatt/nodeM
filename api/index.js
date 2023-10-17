@@ -37,13 +37,18 @@ router.get("/text-mail", (req,res)=>{
 })
 
 router.post('/', (req,res)=>{
-    const {text} = req.body;
+    const {name,email,num,message} = req.body;
     const mailData = {
         from: 'kaoruhashiga@gmail.com',
         to: 'xmuhammadfaizanx@gmail.com',
-        subject:"Contacted By",
-        text: text,
-        html: `<b> Hey there! </b><br> ${text}</br>`
+        subject:`You were contacted by ${name} `,
+        text: "contacted By someone",
+        html: `<b> Hey there! </b><br> You were contacted by someone </br>
+        <br> Name: ${name}</br>
+        <br> Email: ${email}</br>
+        <br> Phone Number: ${num}</br>
+        <br> Message: ${message}</br>
+        `
     }
     
     transporter.sendMail(mailData, (err,info)=>{
